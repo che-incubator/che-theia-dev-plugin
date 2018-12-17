@@ -1,0 +1,17 @@
+endpoints:
+ -  name: "theia-dev-flow"
+    public: true
+    targetPort: 3010
+containers:
+ - name: theia-dev
+   image: eclipse/che-theia-dev:nightly
+   editor-commands:
+     - name: uname
+       working-dir: "$(project)"
+       command: ["uname", "-a"] 
+   volumes:
+     - mountPath: "/projects"
+       name: projects
+   ports:
+     - exposedPort: 3010
+   memory-limit: "1536M"

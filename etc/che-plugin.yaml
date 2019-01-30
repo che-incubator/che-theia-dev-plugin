@@ -5,9 +5,9 @@ endpoints:
 containers:
  - name: theia-dev
    image: eclipse/che-theia-dev:nightly
-   editor-commands:
+   editorCommands:
      - name: uname
-       working-dir: "$(project)"
+       workingDir: "$(project)"
        command: ["uname", "-a"] 
    volumes:
      - mountPath: "/projects"
@@ -15,3 +15,4 @@ containers:
    ports:
      - exposedPort: 3010
    memory-limit: "1536M"
+   memoryLimit: "1536M"
